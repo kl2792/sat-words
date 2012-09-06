@@ -4,9 +4,10 @@ require 'csv'
 get '/' do
   csv = CSV.open('words.csv')
   today = Date.today.strftime('%m/%d/%y')
-  @word = csv.find {|word| word[0] === "09/06/12"}
+  @word = csv.find {|word| word[0] === today}
   
-  erb :index
+  
+  erb :index if @word
 end
 
 __END__
