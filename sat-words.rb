@@ -6,8 +6,8 @@ get '/' do
   today = Date.today.strftime('%m/%d/%y')
   @word = csv.find {|word| word[0] === today}
   
-  
   erb :index if @word
+  "There is no SAT Word of the Day today."
 end
 
 __END__
