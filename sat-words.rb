@@ -15,6 +15,9 @@ __END__
   <html>
     <head>
       <title>SAT Word of the Day for <%= @word [0]%></title>
+      <style>
+        body {font-family: Helvetica, Arial, "MS Trebuchet", sans-serif;}
+      </style>
     </head>
     <body>
       <%= yield %>
