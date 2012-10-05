@@ -10,6 +10,15 @@ get '/' do
   "There is no SAT Word of the Day today."
 end
 
+get '/js' do
+  content_type 'text/javascript', :charset => 'utf-8'
+  csv = CSV.open('words.csv')
+  today = Date.today.strftime('%m/%d/%y')
+  @word = csv.find {|word| word[0] === today}
+  
+  
+end
+
 __END__
 
 @@ layout
@@ -29,3 +38,8 @@ __END__
   <h1><%= @word[1] %></h1>
   <p>(<em><%= @word[2] %></em>) &rarr; <%= @word[3] %></p>
   <p><em><%= @word[4] %></em></p>
+  
+@@ js
+  (function(){
+    return <%= @word.to_json %>
+  })()
