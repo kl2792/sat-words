@@ -56,5 +56,5 @@ __END__
   formattedWord += word.definition + "</p>\n";
   formattedWord += "<p>" + word.sentence + "</p>";
   
-  $(body).prepend(formattedWord);
+  $('#messages').prepend(formattedWord);
 })($)
